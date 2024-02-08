@@ -1,0 +1,57 @@
+/*global*/
+*{
+    padding: 0%;
+    margin: 0;
+}
+body{
+    font-family: ;
+}
+img{
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+}
+
+/*utilities*/
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8rem;
+}
+
+/*header*/
+
+.site-init{
+    background-color: white;
+    height: 15rem;
+
+}
+
+/*main*/
+
+/*welcome*/
+.welcome-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.welcome-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+    height: 20rem;
+}
+.welcome-img{
+    width: 20rem;
+    border-radius: 50%;
+}
+
+/*services*/
+
+/*footer*/
+.site-footer{
+    background-color: orange;
+    height: 10rem;
+}
