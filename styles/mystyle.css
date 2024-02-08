@@ -4,8 +4,9 @@
     margin: 0;
 }
 body{
-    font-family: ;
+    font-family: 'Griffy', system-ui;
 }
+
 img{
     max-width: 100%;
 }
@@ -24,8 +25,9 @@ a{
 /*header*/
 
 .site-init{
-    background-color: white;
-    height: 15rem;
+    width: 100%;
+    background-color: #CB997E;
+    height: 10rem;
 
 }
 
@@ -40,18 +42,16 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: pink;
-    height: 20rem;
-}
-.welcome-img{
-    width: 20rem;
-    border-radius: 50%;
+    background-color: #6B705C;
+    display: block;
+    width: 30rem;
+    border-radius: 40px;
 }
 
 /*services*/
 
 /*footer*/
 .site-footer{
-    background-color: orange;
+    background-color: #A5A58D;
     height: 10rem;
 }
