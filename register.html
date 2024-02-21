@@ -21,6 +21,9 @@
     </header>
     <main class=""> 
         <h2>Register a new pet</h2>
+        <div id="notification" class="hidden">
+
+        </div>
 
         <form class="container">
             <div class="mb-3">
@@ -32,25 +35,115 @@
                 <input class="form-control form-control-sm" type="number" id="txtAge">
             </div>
             <div class="mb-3">
-                <label class="form-label">Gender:</label>
-                <input class="form-control form-control-sm" type="text" id="txtGender">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Service:</label>
-                <input class="form-control form-control-sm" type="text" id="txtService">
-            </div>
-            <div class="mb-3">
                 <label class="form-label">Breed:</label>
                 <input class="form-control form-control-sm" type="text" id="txtBreed">
             </div>
+            <div class="mb-3">
+                <label>Service</label>
+                <select id="txtSelect">
+                    <option value="service"></option>
+                    <option value="service"> Full-styling</option>
+                    <option value="serviceg">Bath and Brush</option>
+                    <option value="service">Flea bath</option>
+                    <option value="service">De-matting</option>
+                    <option value="service">Nail trimming</option>
+                    <option value="service">Vaccines</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Discount</label>
+                <select id="txtSelect">
+                    <option value="discount"></option>
+                    <option value="discount">Military</option>
+                    <option value="discount">Veteran</option>
+                    <option value="discount">Student</option>
+                    <option value="discount">Teacher</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Payment method:</label>
+                <select id="txtSelect">
+                    <option value="paymentmethod"></option>
+                    <option value="paymentmethod">Cash</option>
+                    <option value="paymentmethod">Credit</option>
+                    <option value="paymentmethod">Debit</option>
+                    <option value="paymentmethod">Google Play</option>
+                    <option value="paymentmethod">Paypal</option>
+                    <option value="paymentmethod">AfterPay</option>
+                    <option value="paymentmethod">Klarna</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Status</label>
+                <select id="txtSelect">
+                    <option value="status"></option>
+                    <option value="status">Registered</option>
+                    <option value="status">Unregistered</option>
+                </select>
+            </div>
+
         </form>
+
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="button" onclick="register();">Register</button> 
         </div>
 
-        <button type="button" class="btn btn-primary">Register</button>
+        <h2>Fur-riends <span id="totalPets"></span></h2>
+        <form id="form"> 
+            <form action="/search_results">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </form>
 
-        <h2>Registered pets <span id="totalPets"></span></h2>
-        <div id="pets"></div>
+        <div class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Service</th>
+                        <th>Breed</th>
+                        <th>Status</th>
+                        <th>Paymentmethod</th>
+                        <th>Discount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kona</td>
+                        <td>4</td>
+                        <td>Female</td>
+                        <td>Full styling</td>
+                        <td>French Bulldog</td>
+                        <td>Registered</td>
+                        <td>Credit card</td>
+                        <td>Veterans discount</td>
+                    </tr>
+                    <tr>
+                        <td>Kailua</td>
+                        <td>2</td>
+                        <td>Female</td>
+                        <td>De-matting</td>
+                        <td>Norwegian Elkhound</td>
+                        <td>Registered</td>
+                        <td>Credit card</td>
+                        <td>Veterans discount</td>
+                    </tr>
+                    <tr>
+                        <td>Koko</td>
+                        <td>4</td>
+                        <td>Male</td>
+                        <td>Flea Bath</td>
+                        <td>American Short Hair</td>
+                        <td>Registered</td>                        
+                        <td>Credit card</td>
+                        <td>Veterans discount</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </main>
 

@@ -8,7 +8,7 @@ body{
 }
 
 img{
-    max-width: 100%;
+    max-width: 200%;
 }
 a{
     text-decoration: none;
@@ -48,10 +48,54 @@ a{
     border-radius: 40px;
 }
 
+/*register*/
+.table-section{
+    height: 200px;
+    overflow: auto;
+}
+
+table{
+    width: 100%;
+    table-layout: fixed;
+    min-width: 1000px;
+}
+thead th{
+    position: sticky;
+    top: 0;
+    background-color: #DDBEA9;
+    color: #6b705c;
+    font-size: 20px;
+}
+th,td{
+    border-bottom: 1px solid #6b705c;
+    padding: 10px 10px;
+}
+
 /*services*/
 
 /*footer*/
 .site-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #A5A58D;
-    height: 10rem;
+    height: 20rem;
+}
+/*cards*/
+#pets{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+.petCard{
+    background-color: #dedede;
+    border-radius: 5px;
+    padding: 1rem;
+}
+.alert-error{
+    background-color: pink;
+}
+.hidden{
+
 }
