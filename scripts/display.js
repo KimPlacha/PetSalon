@@ -8,16 +8,21 @@ function displayPetNames(){
 }
 
 function displayPetCards(){
+    let petList=readItems("petsDB");
     getE('pets').innerHTML="";
     let card="";
-    for(let i=0;i<salon.pets.length;i++){
-        let pet = salon.pets[i];
+    for(let i=0;i<petList.length;i++){
+        let pet = petList[i];
         card+=`
             <div id="${pet.id}" class="petCard">
                 <p>Name: ${pet.name}</p>
                 <p>Age: ${pet.age}</p>
+                <p>Breed: ${pet.breed}</p>
                 <p>Gender: ${pet.gender}</p>
+                <p>Date: ${pet.date}</p>
                 <p>Service: ${pet.service}</p>
+                <p>Paymentmethod: ${pet.paymentmethod}</p>
+                <p>Discount: ${pet.discount}</p>
                 <button onclick="deletePet(${pet.id})">Delete</button>
             </div>
         `;

@@ -31,7 +31,7 @@ function displayItems(items){
     let li;
     for(let i=0;i<items.length;i++){
         let item=items[i];
-        li=`<li>${item.description}</li>`;
+        li=`<li>${item.description} - ${item.price}</li>`;
         htmlList.append(li);
     }
 }

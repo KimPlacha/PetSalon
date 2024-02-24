@@ -1,0 +1,149 @@
+.form-box{
+    display: block;
+    text-align: center;
+    width: 50rem;
+    height: 70rem;
+    margin: 0 auto;
+    box-shadow: 0.4rem 0.3rem  1rem rgb(165, 163, 163);
+}
+
+.form-box h2{
+    padding: 2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.35rem;
+}
+
+.form-control {
+    border: none !important;
+}
+
+.form-control input{
+    border: none;
+    border-bottom: 2px solid rgb(92, 88, 88) ; 
+}
+
+.form-control input:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(233, 166, 90) ; 
+
+}
+
+.radio label{
+    margin: 1rem;
+}
+
+.form-control select{
+    /* width: 10rem;
+    height: 2rem;
+    border: none;
+    border-bottom: 2px solid rgb(92, 88, 88) ; 
+    font-size: 1rem; */
+
+    z-index: 1800; 
+    background: #fff; 
+    height: 33px; 
+    width: 30%;
+    height: 3rem;
+
+}
+    
+select option:checked {
+    background: #fc9afd -webkit-linear-gradient(bottom, #fc9afd 0%, #fc9afd 100%);
+}
+select option:hover {
+    background: #fc9afd -webkit-linear-gradient(bottom, #fc9afd 0%, #fc9afd 100%);
+    color: #fff;
+}
+select option {
+    padding:8px;
+}
+
+
+button{
+    
+    border: none;
+    background-color: #fc9afd;
+    height: 3rem;
+    width: 10rem;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.3rem;
+    box-shadow:4px 4px #ffc30f;
+    border-radius: 10px;
+    transition: all 0.2s ease-out;
+}
+
+button:hover{
+    background-color:#fc9afd ;
+    box-shadow:4px 4px  #4ac0ff;
+    
+}
+
+.pet-box h1{
+    text-align: center;
+    margin: 5rem 0;
+}
+.pets{
+    margin:2rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 3rem;
+}   
+
+.pet-card{
+    margin:0 auto;
+    background-color: #ffc30f;
+    padding: 3rem;
+    border-radius: 2%;
+}
+
+
+
+.btn-remove{
+    color: #fff;
+}
+
+.search-entry{
+display: flex;
+justify-content: center;
+margin: 2rem;
+}
+
+.search-entry input{
+    width: 20rem;
+    margin: 1rem;
+}
+
+.search-entry button{
+
+    margin: 1rem;
+    padding: 0.5rem;
+    border: none;
+    background-color: #ffffff;
+    width: 10rem;
+    height: 3.9rem;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.3rem;
+    border: 1px solid black;
+    box-shadow: none;
+    border-radius: 10px;
+    transition: all 0.2s ease-out;
+}
+
+
+.search-entry button:hover{
+
+background-color: #fc9afd;
+
+}
+
+
+.go-back{
+    display: none;
+}
+
+

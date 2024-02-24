@@ -1,0 +1,137 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="index.html">
+<link rel="stylesheet" href="jsresponse.html">
+<link rel="stylesheet" href="searchable.html">
+<link rel="stylesheet" href="sorttable.html">
+
+<style>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="register.html">Register</a>
+    <a href="jstable.html">Registered Fur-riends</a>
+</nav>
+    th{ 
+        color:#CB997E;
+            }
+
+            <div class="row">
+
+<div class="col-md-4"></div>
+
+<div class="col-md-4">
+
+    <div class="card card-body">
+
+        <!-- Form Wrapper & Button -->
+        <button class="btn btn-sm btn-primary" id="newPet">Register New Pet</button>
+        <div class="form-wrapper hidden">
+            <select class="form-control" id="newPet">
+                <option>----------</option>
+                <option>Flash Point</option>
+                <option>Water</option>
+                <option>Distillation</option>
+            </select>
+            <input class="form-control" type="text" id="newPet">
+            <button class="btn btn-sm btn-info" id="newPet">Add</button>
+        </div>
+
+        <!-- Data Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Birthdate</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Service</th>
+                <th scope="col">Breed</th>
+                <th scope="col">Payment method</th>
+                <th scope="col">Discount</th>
+                </tr>
+            </thead>
+        <tbody id="myTable">
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<div class="col-md-4"></div>
+</div>
+</style>
+
+
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Birthdate</th>
+        <th>Gender</th>
+        <th>Service</th>
+        <th>Breed</th>
+        <th>Paymentmethod</th>
+        <th>Discount</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+	var myArray = [
+    {'name':'Kona', 'age':'4', 'birthdate':'03/21/2020','gender':'female', 'service':'nail trim', 'breed':'french bulldog', 'paymentmethod': 'cash', 'discount':'veterans'},
+    {'name':'Koko', 'age':'4', 'birthdate':'07/04/2020', 'gender':'male', 'service':'flea bath','breed':'american short hair','paymentmethod': 'credit card','discount':'student'}, 
+    {'name':'Kailua', 'age':'2', 'birthdate':'05/2/2022','gender':'female','service':'de-shedding','breed':'norwegian elkhound','paymentmethod': 'debit','discount':'teacher'},
+    {'name':'Koa', 'age':'5', 'birthdate':'11/29/2019','gender':'male','service':'full-styling','breed':'husky','paymentmethod': 'klarna','discount':'senior'},
+    {'name':'Nala', 'age':'6', 'birthdate':'3/12/2018','gender':'female', 'service':'bath & brush','breed':'pitbull','paymentmethod': 'afterpay','discount':'veterans'},
+    {'name':'Matcha', 'age':'3', 'birthdate':'10/31/2021','gender':'male', 'service':'vaccines','breed':'pug','paymentmethod': 'cash','discount':'student'},
+	]
+	
+	buildTable(myArray)
+
+    function searchTable(value, data){
+        var filteredData = []
+
+        for (var i = 0; i < data.length; i++){
+            value = value.toLowerCase()
+            var name = data[i].name.toLowerCase()
+
+            if (name.includes(value)){
+                filteredData.push(data[i])
+            }
+        }
+
+        return filteredData
+    }
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+        table.innerHTML = ''
+
+		for (var i = 0; i < data.length; i++){
+
+			var row =`<tr>
+                <td>${data[i].name}</td>
+				<td>${data[i].age}</td>
+				<td>${data[i].birthdate}</td>
+                <td>${data[i].gender}</td>
+                <td>${data[i].service}</td>
+				<td>${data[i].breed}</td>
+                <td>${data[i].paymentmethod}</td>
+                <td>${data[i].discount}</td>
+                    </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>

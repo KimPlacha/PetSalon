@@ -1,152 +1,250 @@
-let petID=0;
-// constructor
-function Pet(n,a,g,s,b,d,petID){
-    this.name=n;
-    this.age=a;
-    this.gender=g;
-    this.service=s;
-    this.breed=b;
-    this.discount=d;
-    this.id=petID++;//internal id
-}
-
-function getE(id){
-    return document.getElementById(id);
-}
-
-    // get elements from HTML
-    let inputName= getE("txtName");
-    let inputAge= getE("txtAge");
-    let inputGender= getE("txtGender");
-    let inputService= getE("txtService");
-    let inputBreed= getE("txtBreed");
-    let inputStatus= getE("txtStatus");
-    let inputPaymentmethod=getE("txtPaymentmethod");
-    let inputDiscount=getE("txtDiscount");
-
-let salon={ //object
-    name:"Fur-riendly Spaw",
-    phone:"555-555-5555",
+let salon={
+    name:"Pet Salon",
     address:{
-        street:"Oceanside",
-        number:"1010",
-        zip:"22222"               
+        steet:"Oceanside St",
+        ZipCode:"22222",
+        number:"345",
     },
-    pets: [] //array
-    }
+    hours:{
+        open:"9:00 am",
+        close:"5:00 pm"
+    },
+    pets:[]
 
-    function displayPetNames(){
-    for(let i=0; i<salon.pets.length;i++){
-        document.getElementById('pets').innerHTML+=`<p>${salon.pets[i].name}</p>`;
-        }
-        document.getElementById('totalPets').innerHTML=`Total=${salon.pets.length}`
-    }
+}
 
-    function displayFooterInfo(){
-        document.getElementById("Info").innerHTML=`<p> Welcome to the ${salon.name} is located in ${salon.address.street} ${salon.address.number} ${salon.address.zip}</p>`;
-    }
+//ASSIGNMENT 1
+function displayPetNames(){
 
-
-    function isValid(aPet){
-        let validation=true;
-        //clear the style
-        //document.queryelectorAll(inputs);
-        getE("txtName").classList.remove("alert-error");
-        getE("txtAge").classList.remove("alert-error");
-        if(aPet.name==""){
-            //the pet is not valid
-            validation=false;
-            getE("txtName").classList.add("alert-error");
-        }
-        if(aPet.age==""){
-            validation=false;
-            getE("txtAge").classList.add("alert-error");
-        }
-        return validation;
-
-        if(aPet.gender==""){
-            validation=false;
-            getE("txtGender").classList.add("alert-error");
-        }
-        if(aPet.service==""){
-            validation=false;
-            getE("txtService").classList.add("alert-error");
-        }
-        if(aPet.breed==""){
-            validation=false;
-            getE("txtBreed").classList.add("alert-error");
-        }
-        if(aPet.discount==){
-            validation=false;
-            getE("txtDiscount").classList.add("alert-error");
-        }
-        return validation;
-    }
-
-        function showNotifications(msg,type){
-            getE("notifications").classList.remove("hidden");
-            getE("notifications").innerHTML=`<p class="${type}">${msg} </p>`;
-
-            setTimeoutfunction(){
-                getE("notifications").classList.add("hidden");
-    }
-
-        function register(){
-            //1) getting value
-            //2) create the newPet using the constructor
-            let newPet = new Pet (inputName.value,inputAge.value,inputGender.value);
-
-            if(isValid (newPet)==true){
-                salon.pets.push(newPet);
-                displayPetCards();
-                inputName.value="";
-                inputAge.value="";
-                inputGender.value="";
-                inputService.value="";
-                inputBreed.value="";
-                inputStatus.value="";
-                inputPaymentmethod.value="";
-                inputDiscount.value="";
-                
-                showNotifications("Successful registration")
-            }else{
-                showNotifications("Please fill out all the required fields","alert-error");
-                }
-            }
-    function deletePet(petId){
-        let deleteIndex;// to get the index of the array (position of the object)
-        for(let i=0;i<salon.pets.length;i++){
-            let pet =  salon.pets[i];
-            if(pet.id==petID){
-                deleteIndex=i;
-                break;
-            }
-        }
-            getE(id).remove();//remove from the html
-            salon.pets.splice(deleteIndex,1);//remove the pet from the array
-        }
-        function init(){
-            // creating predefined objects
-            let pet1=new Pet ("Kona",4,"female","french bulldog","Veterans");
-            let pet2=new Pet ("Kailua",2,"female","Norwegian Elkhound","Veterans");
-            let pet3=new Pet ("Koko",4,"male","American Short Hair","Veterans");
-            salon.pets.push(pet1,pet2,pet3)
-            //executing function
-            displayPetCards();
-        }
-        window.onload=init;//wait to render the html
+salon.pets.forEach((element)=> {
+    console.log(element.name);
+});
     
-        function getE(id){
-            return document.getElementById(id);
-        
-            }
-            //3) push the newPet to the array
-            salon.pets.push(newPet);
-            //4) call display function
-            displayPetNames();
-                //5) clear the input
-                inputName.value="";
-                inputAge.value="";
-                inputGender.value="";
-                inputService.value="";
+alert(`They are ${salon.pets.length} on the line`)
+}
+
+
+
+//Create the constructor
+class Pets{
+    
+    constructor(name,age,breed,service,gender,date,ownerName,ownerPhone,ownerAddress){
+
+        this.name=name;
+        this.age=age;
+        this.breed=breed;
+        this.gender=gender;
+        this.date=date;
+        this.service=service;
+        this.paymentmethod=paymentmethod;
+        this.discount=discount;
+        this.ownerInfo={
+            name:ownerName,
+            phone:ownerPhone,
+            address:ownerAddress,
+    }
+}
+
+}
+
+const removeRegister = (index) => { 
+
+    if(index<salon.pets.length){
+        salon.pets.splice(index,1);
+
+
+    }
+
+     //reset the card so they cant be duplicated
+    document.getElementById("petList").innerHTML="";
+    document.getElementById("rowTarget").innerHTML="";
+
+    printPetCard();
+    printTable();
+}
+
+
+
+const register = () => {
+
+    //reset the card so they cant be duplicated
+    document.getElementById("petList").innerHTML="";
+    document.getElementById("rowTarget").innerHTML="";
+
+        //Capture the values from the form
+
+    let form=document.getElementById("petForm");
+    let name=document.getElementById("txtpetName").value;
+    let age=document.getElementById("txtAge").value;
+    let breed=document.getElementById("txtBreed").value;
+    let service=document.getElementById("selService").value;
+    let gender=document.getElementById("rdbMale").checked;
+    let date=document.getElementById("txtDate").value; 
+    let ownerName=document.getElementById("txtownerName").value;  
+    let ownerPhone=document.getElementById("txtownerPhone").value;
+    let ownerAddress=document.getElementById("txtownerAddress").value;
+    
+   //check if the gender 
+    if(gender==true){
+        gender="Male"
+    }else
+    {
+        gender="Female"
+    }
+
+    //Create new pet
+    let newPet=new Pets(name,age,breed,service,gender,date,ownerName,ownerPhone,ownerAddress)
+
+    //Push the pet to the pets array
+    salon.pets.push(newPet);
+
+    //log the pet info
+    // console.log(newPet);
+    // console.log(salon.pets);
+    alert("Pet Registered");
+
+    //clear form
+    form.reset();
+
+    //Display added cards
+    printPetCard();
+    printTable();
+    
+
+}
+
+
+//Displays the registered pet on the table
+const printPetCard = () => {
+
+    document.getElementById("petList").innerHTML="";
+    document.getElementById("rowTarget").innerHTML="";
+    //tarvel the array
+
+    for (let i = 0; i < salon.pets.length; i++) {
+        //create the card
+    
+    //append the tmp into the HTML
+    document.getElementById("petList").innerHTML+=createCard(salon.pets[i],i);
+
+
+}};
+
+const printTable = () => { 
+    for (let i = 0; i < salon.pets.length; i++) {
+    
+    //append the tmp table in HTML
+    document.getElementById("rowTarget").innerHTML+=createRow(salon.pets[i]);
+
+}};
+
+//Search an specific name on the array
+const searchPet = () => {
+
+    document.querySelector(".go-back").style.display="inline";
+    let name=document.getElementById("txtSearch").value;
+
+for (let i = 0; i < salon.pets.length; i++) {
+
+        if(name.toLowerCase()==salon.pets[i].name.toLowerCase()){
+          //append the tmp into the HTML
+        console.log("found");
+
+            //reset the card so they cant be duplicated
+            document.getElementById("petList").innerHTML="";
+            document.getElementById("rowTarget").innerHTML="";
+
+             //get the exact element of the array
+        document.getElementById("petList").innerHTML+=createCard(salon.pets[i],i);
+        document.getElementById("rowTarget").innerHTML+=createRow(salon.pets[i]);
+
         }
+    
+    }
+
+    document.getElementById("headerList").innerHTML="Search Result";
+} 
+
+const goBack = () => {
+
+    document.querySelector(".go-back").style.display="none";
+
+    printPetCard();
+    printTable();
+}
+
+
+const createCard = (pet,index) => {
+    //create the card with all the data
+    return `<div class="pet-card">
+        <h3>Name:${pet.name}</h3>
+        <p>Age:${pet.age}</p>
+        <p>Breed:${pet.breed}</p>
+        <p>Gender:${pet.gender}</p>
+        <p>Appointment:${pet.date}</p>
+        <p>Service:${pet.service}</p>
+        <p>Service:${pet.paymentmethod}</p>
+        <p>Service:${pet.discount}</p>
+
+        <h3>Owner Information</h3>
+        <p>${pet.ownerInfo.name}</p>
+        <p>${pet.ownerInfo.phone}</p>
+        <p>${pet.ownerInfo.address}</p>
+        <button onclick="removeRegister(${index});" class="btn-remove">Remove</button>
+    </div> `;
+
+};
+
+
+const createRow=(pet)=>{
+//return the row
+    return ` <tr>
+    <th scope="row"></th>
+    <td>${pet.name}</td>
+    <td>${pet.age}</td>
+    <td>${pet.breed}</td>
+    <td>${pet.gender}</td>
+    <td >${pet.date}</td>
+    <td>${pet.service}</td>
+    <td>${pet.paymentmethod}</td>
+    <td >${pet.discount}</td>
+    </tr>`;
+
+}
+
+//initial load on the webpage
+const init = () => {
+
+    let Kona =new Pets("Kona", "4","french bulldog","female","nail trim","cash","veterans");
+    let Koko=new Pets("Koko", "4","american short hair","male","flea bath","credit card","student");
+    let Kailua=new Pets("Kailua", "2","norwegian elkhound","female","de-shedding","debit","teacher");
+    let Koa=new Pets("Koa", "5","husky","male","full-styling","klarna","senior");
+    let Nala=new Pets("nala", "6","pitbull","female","bath & brush","afterpay","veterans");
+    let Matcha=new Pets("matcha",3,"pug","male","vaccines","cash","student");
+    salon.pets.push(Kona,Koko,Kailua,Koa,Nala,Matcha);
+    displayPetNames();
+    printPetCard();
+    printTable();
+};
+
+window.onload=init;
+
+
+
+
+//Controls the hover color on the select-dropdown-menu 
+function select_option(){
+    var selectBox = document.getElementById("selService");
+    $size = selectBox.size;
+        $set_size = 4;
+    if ($size == $set_size) {
+    selectBox.size = 1;
+    selectBox.style.overflow = 'hidden';
+    } else {
+    selectBox.size = $set_size;
+    selectBox.style.height = 'auto';
+    selectBox.style.overflow = 'auto';
+    }
+    var selectedOptionTop = selectBox.options[selectBox.selectedIndex].offsetTop;
+    selectBox.scrollTop = selectedOptionTop;
+}
